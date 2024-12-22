@@ -1,0 +1,24 @@
+<script>
+    function encodeBase64() {
+      const input = document.getElementById("base64Input").value.trim(); // Trim whitespace
+      if (!input) { // Check if input is empty
+        document.getElementById("base64Output").textContent = "Please enter text to encode!";
+        return;
+      }
+      document.getElementById("base64Output").textContent = btoa(input);
+    }
+  
+    function decodeBase64() {
+      const input = document.getElementById("base64Input").value.trim(); // Trim whitespace
+      if (!input) { // Check if input is empty
+        document.getElementById("base64Output").textContent = "Please enter Base64 to decode!";
+        return;
+      }
+      try {
+        document.getElementById("base64Output").textContent = atob(input);
+      } catch (error) {
+        document.getElementById("base64Output").textContent = "Invalid Base64!";
+      }
+    }
+  </script>
+  
