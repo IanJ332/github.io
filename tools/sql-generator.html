@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQL Generator</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      width: 150px;
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group select {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .field-settings {
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #f4f4f4;
+    }
+
+    .actions {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .actions button {
+      padding: 10px 15px;
+      margin: 0 10px;
+      border: none;
+      background: #4facfe;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .actions button:hover {
+      background: #0077cc;
+    }
+
+    .result {
+      margin-top: 20px;
+    }
+
+    .result textarea {
+      width: 100%;
+      height: 150px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>SQL Generator</h1>
+
+    <!-- Basic Info -->
+    <div class="form-group">
+      <label for="databaseName">Database Name</label>
+      <input type="text" id="databaseName" placeholder="Enter database name">
+    </div>
+    <div class="form-group">
+      <label for="tableName">Table Name</label>
+      <input type="text" id="tableName" placeholder="Enter table name">
+    </div>
+    <div class="form-group">
+      <label for="engine">Storage Engine</label>
+      <select id="engine">
+        <option value="InnoDB">InnoDB</option>
+        <option value="MyISAM">MyISAM</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="charset">Character Set</label>
+      <select id="charset">
+        <option value="utf8">UTF-8</option>
+        <option value="latin1">Latin1</option>
+      </select>
+    </div>
+
+    <!-- Field Settings -->
+    <div class="field-settings">
+      <h2>Field Settings</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Field Name</th>
+            <th>Data Type</th>
+            <th>Length</th>
+            <th>Default Value</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="fields">
+          <tr>
+            <td><input type="text" placeholder="Field Name"></td>
+            <td>
+              <select>
+                <option value="INT">INT</option>
+                <option value="VARCHAR">VARCHAR</option>
+                <option value="TEXT">TEXT</option>
+              </select>
+            </td>
+            <td><input type="text" placeholder="Length"></td>
+            <td><input type="text" placeholder="Default Value"></td>
+            <td>
+              <button onclick="deleteField(this)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button onclick="addField()">Add Field</button>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <button onclick="generateSQL()">Generate SQL</button>
+    </div>
+
+    <!-- Result -->
+    <div class="result">
+      <textarea id="sqlOutput" readonly placeholder="Your SQL will appear here..."></textarea>
+    </div>
+  </div>
+
+  <script>
+    function addField() {
+      const fields = document.getElementById("fields");
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td><input type="text" placeholder="Field Name"></td>
+        <td>
+          <select>
+            <option value="INT">INT</option>
+            <option value="VARCHAR">VARCHAR</option>
+            <option value="TEXT">TEXT</option>
+          </select>
+        </td>
+        <td><input type="text" placeholder="Length"></td>
+        <td><input type="text" placeholder="Default Value"></td>
+        <td>
+          <button onclick="deleteField(this)">Delete</button>
+        </td>
+      `;
+      fields.appendChild(row);
+    }
+
+    function deleteField(button) {
+      const row = button.parentElement.parentElement;
+      row.remove();
+    }
+
+    function generateSQL() {
+      const databaseName = document.getElementById("databaseName").value;
+      const tableName = document.getElementById("tableName").value;
+      const engine = document.getElementById("engine").value;
+      const charset = document.getElementById("charset").value;
+
+      const rows = document.querySelectorAll("#fields tr");
+      let fields = "";
+
+      rows.forEach(row => {
+        const fieldName = row.querySelector("input[placeholder='Field Name']").value;
+        const dataType = row.querySelector("select").value;
+        const length = row.querySelector("input[placeholder='Length']").value;
+        const defaultValue = row.querySelector("input[placeholder='Default Value']").value;
+
+        fields += `  ${fieldName} ${dataType}${length ? `(${length})` : ""} ${defaultValue ? `DEFAULT '${defaultValue}'` : ""},\n`;
+      });
+
+      if (fields) fields = fields.trim().slice(0, -1);
+
+      const sql = `
+CREATE DATABASE ${databaseName};
+USE ${databaseName};
+
+CREATE TABLE ${tableName} (
+${fields}
+) ENGINE=${engine} DEFAULT CHARSET=${charset};
+      `.trim();
+
+      document.getElementById("sqlOutput").value = sql;
+    }
+  </script>
+</body>
+
+</html>
