@@ -5,27 +5,26 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Formatter</title>
+    <title>Simple JSON Formatter</title>
     <link rel="stylesheet" href="../css/styles.css">
     <style>
-      /* Central layout with two columns */
+      /* layout need some fix but yeah */
       .container {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
+        margin: 20px auto;
+        gap: 20px;
       }
   
-      /* Input and output sections */
-      .input-section,
-      .output-section {
+      /* in n out */
+      .input-section, .output-section {
         flex: 1;
-        margin: 10px;
+        margin: 0;
       }
   
-      textarea {
+      textarea, pre {
         width: 100%;
         height: 400px;
         resize: none;
@@ -34,17 +33,16 @@
         font-size: 1rem;
       }
   
-      /* Button column */
+      /* bottons */
       .buttons {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
         align-items: center;
-        justify-content: center;
       }
   
-      button, select {
-        padding: 10px 20px;
+      button, input[type="file"] {
+        padding: 10px 15px;
         font-size: 1rem;
         cursor: pointer;
         border: none;
@@ -57,23 +55,10 @@
         background-color: #0077cc;
       }
   
-      select {
+      input[type="file"] {
         background-color: #f4f4f4;
         color: #333;
         border: 1px solid #ccc;
-      }
-  
-      /* File upload area */
-      .upload-container {
-        border: 2px dashed #0077cc;
-        padding: 10px;
-        margin-bottom: 10px;
-        text-align: center;
-        background-color: #f9f9f9;
-      }
-  
-      .upload-container:hover {
-        background-color: #e6f7ff;
       }
   
       pre {
@@ -90,7 +75,7 @@
   
   <body>
     <header>
-      <h1>JSON Formatter</h1>
+      <h1>Simple JSON Formatter</h1>
       <nav>
         <ul>
           <li><a href="../index.html" id="nav-home">Home</a></li>
@@ -103,37 +88,26 @@
     </header>
   
     <main>
-      <!-- Layout container -->
+      <!-- main container -->
       <div class="container">
-        <!-- Input Section -->
+        <!-- input box -->
         <div class="input-section">
-          <div class="upload-container">
-            <p>Drag and drop your JSON file here or</p>
-            <input type="file" id="fileInput" accept=".json">
-          </div>
-          <textarea id="jsonInput" placeholder="Paste your JSON here..."></textarea>
+          <textarea id="jsonInput" placeholder="Paste your JSON here or upload a file..."></textarea>
         </div>
   
-        <!-- Buttons -->
+        <!-- bottons -->
         <div class="buttons">
-          <!-- B1: Format JSON -->
+          <!-- upload -->
+          <input type="file" id="fileInput" accept=".json">
+          <!-- format -->
           <button onclick="formatJSON()">Format JSON</button>
-  
-          <!-- B2: Select Formatting Spaces -->
-          <label>
-            Indentation Spaces:
-            <select id="spaceSelector">
-              <option value="1">1 Space</option>
-              <option value="2" selected>2 Spaces</option>
-              <option value="3">3 Spaces</option>
-            </select>
-          </label>
-  
-          <!-- B3: Copy to Clipboard -->
+          <!-- download -->
+          <button onclick="downloadJSON()">Download JSON</button>
+          <!-- copy -->
           <button onclick="copyJSON()">Copy to Clipboard</button>
         </div>
   
-        <!-- Output Section -->
+        <!-- input area -->
         <div class="output-section">
           <pre id="jsonOutput"></pre>
         </div>
@@ -141,29 +115,18 @@
     </main>
   
     <script>
-      // Highlight active navigation link
-      const currentPage = window.location.pathname.split("/").pop();
-      const navId = `nav-${currentPage.replace(".html", "")}`;
-      const activeLink = document.getElementById(navId);
-      if (activeLink) {
-        activeLink.style.fontWeight = "bold";
-        activeLink.style.textDecoration = "underline";
-      }
-  
-      // Format JSON
+      // format JSON
       function formatJSON() {
         const input = document.getElementById("jsonInput").value;
-        const spaces = parseInt(document.getElementById("spaceSelector").value, 10);
-  
         try {
-          const formatted = JSON.stringify(JSON.parse(input), null, spaces);
+          const formatted = JSON.stringify(JSON.parse(input), null, 2);
           document.getElementById("jsonOutput").textContent = formatted;
         } catch (error) {
           document.getElementById("jsonOutput").textContent = "Invalid JSON!";
         }
       }
   
-      // Copy JSON to Clipboard
+      // Copy to clipboard
       function copyJSON() {
         const output = document.getElementById("jsonOutput").textContent;
         if (output.trim() === "") {
@@ -177,7 +140,23 @@
         });
       }
   
-      // Handle File Upload
+      // Download User file(s)
+      function downloadJSON() {
+        const output = document.getElementById("jsonOutput").textContent;
+        if (output.trim() === "") {
+          alert("Nothing to download! Please format your JSON first.");
+          return;
+        }
+        const blob = new Blob([output], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "formatted.json";
+        link.click();
+        URL.revokeObjectURL(url);
+      }
+  
+      // upload user file(s
       const fileInput = document.getElementById("fileInput");
       fileInput.addEventListener("change", (event) => {
         const file = event.target.files[0];
@@ -193,26 +172,6 @@
           }
         };
         reader.readAsText(file);
-      });
-  
-      // Drag and Drop File Upload
-      const uploadContainer = document.querySelector(".upload-container");
-      uploadContainer.addEventListener("dragover", (event) => {
-        event.preventDefault();
-        uploadContainer.style.backgroundColor = "#e6f7ff";
-      });
-  
-      uploadContainer.addEventListener("dragleave", () => {
-        uploadContainer.style.backgroundColor = "#f9f9f9";
-      });
-  
-      uploadContainer.addEventListener("drop", (event) => {
-        event.preventDefault();
-        const file = event.dataTransfer.files[0];
-        if (file) {
-          fileInput.files = event.dataTransfer.files; // Assign file to input
-          fileInput.dispatchEvent(new Event("change")); // Trigger change event
-        }
       });
     </script>
   </body>
