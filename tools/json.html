@@ -1,40 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JSON Formatter</title>
-  <link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
-  <header>
-    <h1>JSON Formatter</h1>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="json.html">JSON Formatter</a></li>
-        <li><a href="base64.html">Base64 Encoder/Decoder</a></li>
-        <li><a href="timestamp.html">Timestamp Converter</a></li>
-        <li><a href="../about.html">About</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <textarea id="jsonInput" rows="10" cols="50" placeholder="Paste your JSON here..."></textarea>
-    <br>
-    <button onclick="formatJSON()">Format JSON</button>
-    <pre id="jsonOutput"></pre>
-  </main>
-  <script>
-    function formatJSON() {
-      const input = document.getElementById("jsonInput").value;
-      try {
-        const formatted = JSON.stringify(JSON.parse(input), null, 2);
-        document.getElementById("jsonOutput").textContent = formatted;
-      } catch (error) {
-        document.getElementById("jsonOutput").textContent = "Invalid JSON!";
+  <!-- json.html -->
+  <!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Formatter</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+      /* Add central alignment */
+      main {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
       }
-    }
-  </script>
-</body>
-</html>
+  
+      textarea, pre {
+        width: 100%;
+        margin: 10px 0;
+      }
+  
+      button {
+        margin: 5px;
+        padding: 10px 15px;
+        font-size: 1rem;
+        cursor: pointer;
+        background-color: #4facfe;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+      }
+  
+      button:hover {
+        background-color: #0077cc;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <header>
+      <h1>JSON Formatter</h1>
+      <nav>
+        <ul>
+          <li><a href="../index.html" id="nav-home">Home</a></li>
+          <li><a href="../tools/json.html" id="nav-json">JSON Formatter</a></li>
+          <li><a href="../tools/base64.html" id="nav-base64">Base64 Encoder/Decoder</a></li>
+          <li><a href="../tools/timestamp.html" id="nav-timestamp">Timestamp Converter</a></li>
+          <li><a href="../about.html" id="nav-about">About</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <textarea id="jsonInput" rows="10" placeholder="Paste your JSON here..."></textarea>
+      <br>
+      <button onclick="formatJSON()">Format JSON</button>
+      <button onclick="copyJSON()">Copy to Clipboard</button>
+      <pre id="jsonOutput"></pre>
+    </main>
+    <script>
+      // Highlight active navigation link
+      const currentPage = window.location.pathname.split("/").pop();
+      const navId = `nav-${currentPage.replace(".html", "")}`;
+      const activeLink = document.getElementById(navId);
+      if (activeLink) {
+        activeLink.style.fontWeight = "bold"; // Bold the link
+        activeLink.style.textDecoration = "underline"; // Underline the link
+      }
+  
+      // Format JSON
+      function formatJSON() {
+        const input = document.getElementById("jsonInput").value;
+        try {
+          const formatted = JSON.stringify(JSON.parse(input), null, 2);
+          document.getElementById("jsonOutput").textContent = formatted;
+        } catch (error) {
+          document.getElementById("jsonOutput").textContent = "Invalid JSON!";
+        }
+      }
+  
+      // Copy JSON to Clipboard
+      function copyJSON() {
+        const output = document.getElementById("jsonOutput").textContent;
+        if (output.trim() === "") {
+          alert("Nothing to copy! Please format your JSON first.");
+          return;
+        }
+        navigator.clipboard.writeText(output).then(() => {
+          alert("Formatted JSON copied to clipboard!");
+        }).catch(() => {
+          alert("Failed to copy JSON.");
+        });
+      }
+    </script>
+  </body>
+  
+  </html>
+  
+
+<!-- {
+  Example:
+  "name":"John Doe","age":30,"email":"john.doe@example.com","address":{"street":"123 Main St","city":"Springfield","state":"IL","zip":"62701"}}
+ -->
