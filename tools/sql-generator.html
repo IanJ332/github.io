@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SQL Generator</title>
-  <link rel="stylesheet" href="../css/styles.css">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -40,30 +39,17 @@
     }
 
     .form-group input,
-    .form-group select {
+    .form-group select,
+    .form-group textarea {
       flex: 1;
       padding: 8px;
       border: 1px solid #ddd;
       border-radius: 4px;
     }
 
-    .field-settings {
-      margin-top: 20px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-
-    th {
-      background: #f4f4f4;
+    .form-group textarea {
+      height: 80px;
+      font-family: Arial, sans-serif;
     }
 
     .actions {
@@ -105,6 +91,17 @@
   <div class="container">
     <h1>SQL Generator</h1>
 
+    <!-- Operation Selector -->
+    <div class="form-group">
+      <label for="operation">SQL Operation</label>
+      <select id="operation" onchange="toggleFields()">
+        <option value="CREATE">CREATE</option>
+        <option value="DELETE">DELETE</option>
+        <option value="UPDATE">UPDATE</option>
+        <option value="SELECT">SELECT</option>
+      </select>
+    </div>
+
     <!-- Basic Info -->
     <div class="form-group">
       <label for="databaseName">Database Name</label>
@@ -114,24 +111,10 @@
       <label for="tableName">Table Name</label>
       <input type="text" id="tableName" placeholder="Enter table name">
     </div>
-    <div class="form-group">
-      <label for="engine">Storage Engine</label>
-      <select id="engine">
-        <option value="InnoDB">InnoDB</option>
-        <option value="MyISAM">MyISAM</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="charset">Character Set</label>
-      <select id="charset">
-        <option value="utf8">UTF-8</option>
-        <option value="latin1">Latin1</option>
-      </select>
-    </div>
 
     <!-- Field Settings -->
-    <div class="field-settings">
-      <h2>Field Settings</h2>
+    <div class="field-settings" id="fieldSettings">
+      <h2>Field Settings (CREATE)</h2>
       <table>
         <thead>
           <tr>
@@ -163,6 +146,24 @@
       <button onclick="addField()">Add Field</button>
     </div>
 
+    <!-- Selection Columns -->
+    <div class="form-group" id="selectColumns" style="display:none;">
+      <label for="columns">Columns to Select</label>
+      <textarea id="columns" placeholder="Enter columns (e.g., id, name, email)"></textarea>
+    </div>
+
+    <!-- Update Settings -->
+    <div class="form-group" id="updateFields" style="display:none;">
+      <label for="updateValues">Update Columns & Values</label>
+      <textarea id="updateValues" placeholder="Enter updates (e.g., name='John', age=30)"></textarea>
+    </div>
+
+    <!-- Conditions -->
+    <div class="form-group" id="conditions" style="display:none;">
+      <label for="condition">Conditions</label>
+      <textarea id="condition" placeholder="Enter conditions (e.g., id=1 or age>30)"></textarea>
+    </div>
+
     <!-- Actions -->
     <div class="actions">
       <button onclick="generateSQL()">Generate SQL</button>
@@ -175,6 +176,14 @@
   </div>
 
   <script>
+    function toggleFields() {
+      const operation = document.getElementById("operation").value;
+      document.getElementById("fieldSettings").style.display = operation === "CREATE" ? "block" : "none";
+      document.getElementById("selectColumns").style.display = operation === "SELECT" ? "block" : "none";
+      document.getElementById("updateFields").style.display = operation === "UPDATE" ? "block" : "none";
+      document.getElementById("conditions").style.display = ["DELETE", "UPDATE", "SELECT"].includes(operation) ? "block" : "none";
+    }
+
     function addField() {
       const fields = document.getElementById("fields");
       const row = document.createElement("tr");
@@ -202,33 +211,47 @@
     }
 
     function generateSQL() {
+      const operation = document.getElementById("operation").value;
       const databaseName = document.getElementById("databaseName").value;
       const tableName = document.getElementById("tableName").value;
-      const engine = document.getElementById("engine").value;
-      const charset = document.getElementById("charset").value;
 
-      const rows = document.querySelectorAll("#fields tr");
-      let fields = "";
+      let sql = "";
 
-      rows.forEach(row => {
-        const fieldName = row.querySelector("input[placeholder='Field Name']").value;
-        const dataType = row.querySelector("select").value;
-        const length = row.querySelector("input[placeholder='Length']").value;
-        const defaultValue = row.querySelector("input[placeholder='Default Value']").value;
+      if (operation === "CREATE") {
+        const rows = document.querySelectorAll("#fields tr");
+        let fields = "";
 
-        fields += `  ${fieldName} ${dataType}${length ? `(${length})` : ""} ${defaultValue ? `DEFAULT '${defaultValue}'` : ""},\n`;
-      });
+        rows.forEach(row => {
+          const fieldName = row.querySelector("input[placeholder='Field Name']").value;
+          const dataType = row.querySelector("select").value;
+          const length = row.querySelector("input[placeholder='Length']").value;
+          const defaultValue = row.querySelector("input[placeholder='Default Value']").value;
 
-      if (fields) fields = fields.trim().slice(0, -1);
+          fields += `  ${fieldName} ${dataType}${length ? `(${length})` : ""} ${defaultValue ? `DEFAULT '${defaultValue}'` : ""},\n`;
+        });
 
-      const sql = `
+        if (fields) fields = fields.trim().slice(0, -1);
+
+        sql = `
 CREATE DATABASE ${databaseName};
 USE ${databaseName};
 
 CREATE TABLE ${tableName} (
 ${fields}
-) ENGINE=${engine} DEFAULT CHARSET=${charset};
-      `.trim();
+);
+        `.trim();
+      } else if (operation === "SELECT") {
+        const columns = document.getElementById("columns").value || "*";
+        const condition = document.getElementById("condition").value;
+        sql = `SELECT ${columns} FROM ${tableName}${condition ? ` WHERE ${condition}` : ""};`;
+      } else if (operation === "DELETE") {
+        const condition = document.getElementById("condition").value;
+        sql = `DELETE FROM ${tableName}${condition ? ` WHERE ${condition}` : ""};`;
+      } else if (operation === "UPDATE") {
+        const updateValues = document.getElementById("updateValues").value;
+        const condition = document.getElementById("condition").value;
+        sql = `UPDATE ${tableName} SET ${updateValues}${condition ? ` WHERE ${condition}` : ""};`;
+      }
 
       document.getElementById("sqlOutput").value = sql;
     }
