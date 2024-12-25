@@ -1,102 +1,207 @@
-/*style.css*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+/* General Styles */
 body {
-    font-family: 'Roboto', Arial, sans-serif; /* Combine all options for fallback */
+    font-family: 'Roboto', Arial, sans-serif;
+    /* Combine all options for fallback */
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background: #f4f4f4;
     color: #333;
 }
-  
+
 header {
     background: #333;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
 }
-  
+
 header h1 {
     margin: 0;
 }
-  
+
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    /* Flex for desktop layout */
+    justify-content: center;
 }
-  
+
 nav ul li {
-    display: inline;
     margin: 0 15px;
 }
-  
+
 nav ul li a {
     color: #fff;
     text-decoration: none;
 }
 
 nav ul li a:hover {
-    text-decoration: underline; /* Add hover effect for better interactivity */
+    text-decoration: underline;
+    /* Add hover effect for better interactivity */
 }
-  
+
 main {
     padding: 20px;
     text-align: center;
 }
-  
+
 footer {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 0.9em;
-  background: #333;
-  color: #fff;
-  padding: 10px 0;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
 }
 
 footer a {
-  color: #4facfe;
-  text-decoration: none;
+    color: #4facfe;
+    text-decoration: none;
 }
 
 footer a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
-  
-/* Optional Styling for Hero Section */
+
+/* Hero Section Styling */
 .hero {
-  background: linear-gradient(to right, #4facfe, #00f2fe);
-  color: #fff;
-  padding: 50px 20px;
-  text-align: center;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
 }
 
 .hero h1 {
     margin: 0;
-    font-size: 2.5em; /* Make the heading larger */
+    font-size: 2.5em;
+    /* Make the heading larger */
 }
 
 .hero p {
-    font-size: 1.2em; /* Slightly larger subheading */
+    font-size: 1.2em;
+    /* Slightly larger subheading */
     margin: 10px 0 0;
 }
 
+/* Tools List Styling */
 .tools-list ul {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .tools-list li {
-  margin: 10px 0;
+    margin: 10px 0;
 }
 
 .tools-list li a {
-  color: #4facfe;
-  text-decoration: none;
-  font-weight: bold;
+    color: #4facfe;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .tools-list li a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
+}
+
+/* Markdown Preview Styling */
+#markdownPreview {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 15px;
+    background: #f9f9f9;
+    text-align: left;
+    /* Ensure proper alignment */
+}
+
+#markdownPreview h1 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+#markdownPreview p {
+    margin: 0.5em 0;
+}
+
+/* Hamburger Menu */
+#navMenu {
+    display: none;
+    flex-direction: column;
+    background: #333;
+    padding: 10px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+}
+
+#navMenu.show {
+    display: flex;
+}
+
+#navMenu li {
+    margin: 10px 0;
+}
+
+#menuToggle {
+    display: none;
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    nav ul {
+        display: none;
+        /* Hide desktop menu */
+    }
+
+    #menuToggle {
+        display: block;
+        /* Show hamburger menu */
+    }
+
+    #navMenu {
+        display: none;
+    }
+
+    #navMenu.show {
+        display: flex;
+        /* Toggle menu visibility */
+    }
+
+    .tools-list ul {
+        padding: 10px;
+    }
+
+    .tools-list li {
+        margin: 15px 0;
+        /* Increase spacing on mobile */
+    }
+
+    .hero {
+        padding: 30px 15px;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+        /* Reduce size for smaller screens */
+    }
+
+    .hero p {
+        font-size: 1em;
+        /* Smaller font for mobile */
+    }
 }
