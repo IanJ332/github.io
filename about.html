@@ -6,6 +6,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Programmer Tool Box</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    /* 动态背景样式 */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: black;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      animation: twinkle 1.5s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    .profile-pic {
+      display: block;
+      margin: 20px auto;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+    }
+
+    header, footer {
+      text-align: center;
+      background: #222;
+      color: #fff;
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      margin: 20px auto;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: #333;
+    }
+
+    a {
+      color: #00f0ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    // 动态生成星星背景
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.body;
+      const numStars = 150;
+      for (let i = 0; i < numStars; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.animationDuration = Math.random() * 2 + 1 + 's';
+        body.appendChild(star);
+      }
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -21,7 +125,9 @@
     </nav>
   </header>
   <main>
+    <img src="../src/profilePIc.jpg" alt="Ian Jiang" class="profile-pic">
     <section>
+      <h2>Welcome</h2>
       <p>
         Welcome to the Programmer Tool Box! This project provides useful tools to make developers' lives easier,
         including JSON formatting, Base64 encoding/decoding, timestamp conversion, and Markdown previewing.
@@ -30,6 +136,25 @@
         This project was created by <a href="https://github.com/ianj332" target="_blank">ianj332</a> as a way to
         explore web development and contribute back to the developer community.
       </p>
+    </section>
+    <section>
+      <h2>About Me</h2>
+      <p>
+        Hi 👋, I'm Ian Jiang. I'm currently learning <strong>C, C++, Python</strong>. Feel free to reach out to me at 
+        <a href="mailto:jiangjs03@gmail.com">jiangjs03@gmail.com</a> or check out my experiences on 
+        <a href="https://drive.google.com/file/d/1BzDAJgFk1eil1kp6wpwWfgpApZhEMnFN/view?usp=sharing" target="_blank">Google Docs</a>.
+      </p>
+      <p>
+        🔍 I'm working on enhancing the performance of my personal Large Language Model based on Llama3.2 and exploring
+        <strong>Neural Systems</strong> and <strong>Advanced Machine Learning</strong>.
+      </p>
+    </section>
+    <section>
+      <h2>Connect</h2>
+      <p>Connect with me:</p>
+      <a href="https://linkedin.com/in/jisheng-jiang" target="_blank">
+        <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn" width="30">
+      </a>
     </section>
   </main>
   <footer>
