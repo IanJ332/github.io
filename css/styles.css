@@ -1,207 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-/* General Styles */
-body {
-    font-family: 'Roboto', Arial, sans-serif;
-    /* Combine all options for fallback */
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    color: #333;
-}
-
-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    /* Flex for desktop layout */
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-    /* Add hover effect for better interactivity */
-}
-
-main {
-    padding: 20px;
-    text-align: center;
-}
-
-footer {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 0.9em;
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-}
-
-footer a {
-    color: #4facfe;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Hero Section Styling */
-.hero {
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-    color: #fff;
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.hero h1 {
-    margin: 0;
-    font-size: 2.5em;
-    /* Make the heading larger */
-}
-
-.hero p {
-    font-size: 1.2em;
-    /* Slightly larger subheading */
-    margin: 10px 0 0;
-}
-
-/* Tools List Styling */
-.tools-list ul {
-    list-style: none;
-    padding: 0;
-}
-
-.tools-list li {
-    margin: 10px 0;
-}
-
-.tools-list li a {
-    color: #4facfe;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.tools-list li a:hover {
-    text-decoration: underline;
-}
-
-/* Markdown Preview Styling */
-#markdownPreview {
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-top: 15px;
-    background: #f9f9f9;
-    text-align: left;
-    /* Ensure proper alignment */
-}
-
-#markdownPreview h1 {
-    font-size: 1.5em;
-    color: #333;
-}
-
-#markdownPreview p {
-    margin: 0.5em 0;
-}
-
-/* Hamburger Menu */
-#navMenu {
-    display: none;
-    flex-direction: column;
-    background: #333;
-    padding: 10px;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-}
-
-#navMenu.show {
-    display: flex;
-}
-
-#navMenu li {
-    margin: 10px 0;
-}
-
-#menuToggle {
-    display: none;
-    background: #333;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    font-size: 1.5em;
-    cursor: pointer;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5em;
-    }
-
-    nav ul {
-        display: none;
-        /* Hide desktop menu */
-    }
-
-    #menuToggle {
-        display: block;
-        /* Show hamburger menu */
-    }
-
-    #navMenu {
-        display: none;
-    }
-
-    #navMenu.show {
-        display: flex;
-        /* Toggle menu visibility */
-    }
-
-    .tools-list ul {
-        padding: 10px;
-    }
-
-    .tools-list li {
-        margin: 15px 0;
-        /* Increase spacing on mobile */
-    }
-
-    .hero {
-        padding: 30px 15px;
-    }
-
-    .hero h1 {
-        font-size: 2em;
-        /* Reduce size for smaller screens */
-    }
-
-    .hero p {
-        font-size: 1em;
-        /* Smaller font for mobile */
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programmer Tool Box</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Programmer Tool Box</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" id="nav-home">Home</a></li>
+        <li><a href="tools/json.html" id="nav-json">JSON Formatter</a></li>
+        <li><a href="tools/base64.html" id="nav-base64">Base64 Encoder/Decoder</a></li>
+        <li><a href="tools/sql-generator.html" id="nav-sql-generator">SQL Generator</a></li>
+        <li><a href="tools/timestamp.html" id="nav-timestamp">Timestamp Converter</a></li>
+        <li><a href="about.html" id="nav-about">About</a></li>
+      </ul>
+    </nav>         
+  </header>
+  <main>
+    <section class="hero">
+      <h1>Welcome to Programmer Tool Box</h1>
+      <p>Your all-in-one developer tools suite</p>
+    </section>
+    <section class="tools-list">
+      <h2>Available Tools</h2>
+      <ul>
+        <li><a href="tools/json.html">JSON Formatter</a> - Format your JSON for better readability.</li>
+        <li><a href="tools/base64.html">Base64 Encoder/Decoder</a> - Encode or decode Base64 strings.</li>
+        <li><a href="tools/timestamp.html">Timestamp Converter</a> - Convert timestamps to human-readable dates.</li>
+        <li><a href="tools/markdown.html">Markdown Previewer</a> - Preview your Markdown as formatted text.</li>
+        <li><a href="tools/sql-generator.html">SQL Generator</a> - Generate SQL code for databases.</li>
+      </ul>
+    </section>
+  </main>  
+  <footer>
+    <p>Created by <a href="https://github.com/ianj332" target="_blank">ianj332</a> | &copy; 2024 Programmer Tool Box</p>
+  </footer>  
+</body>
+</html>
