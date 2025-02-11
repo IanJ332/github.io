@@ -21,7 +21,7 @@ const illustration = {
 
 const greeting = {
   username: "Ian Jiang",
-  title: "Hi there, I am Ian or Jisheng",
+  title: "Hi there, I am Ian or call me Jisheng.4°",
   subTitle: emoji(
     "A highly capable Backend Engineering  🚀 with experience in API development, AI fine-tuning, and cloud-based solutions. Proficient in Java, Python, JavaScript, and modern backend frameworks."
   ),
@@ -218,7 +218,7 @@ const bigProjects = {
           url: "https://huggingface.co/Ian332/Helper_Bob"
         }
       ],
-      // add more here if you want
+      // add more here if you want 
       className: "project-roundedimg" // Add a class for styling
     }
   ],
