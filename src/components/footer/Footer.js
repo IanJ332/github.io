@@ -14,13 +14,14 @@ export default function Footer() {
         </p>
         <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
           I am here{" "}
-          <a
+          <a href="https://github.com/IanJ332" class="icon-button github" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i><span></span></a>
+          {/* <a
             href="hhttps://github.com/IanJ332"
             target="_blank"
             rel="noreferrer"
           >
             IanJ332
-          </a>
+          </a> */}
         </p>
       </div>
     </Fade>
