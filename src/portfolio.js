@@ -370,10 +370,17 @@ const resumeSection = {
 
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
-  subtitle:
-    "Discuss a project or just want to say hi? My Inbox is open for all.",
-  number: "+92-0000000000",
-  email_address: "saadpasta70@gmail.com"
+  subtitle: "Discuss a project, offer me a job, or just want to say hi? My inbox is open for all.",
+  location: "Santa Clara / Remote", // 添加位置
+  email_address: "jiangjs03@gmail.com", // 替换了
+  avatar: require("./assets/images/profile.png"), // 头像路径
+  isHireable: true, // need job if you see this hire me.
+
+  socialLinks: {
+    github: "https://github.com/IanJ332",
+    linkedin: "https://www.linkedin.com/in/jisheng-jiang/",
+    email: "mailto:jiangjs03@gmail.com"
+  }
 };
 
 // Twitter Section
