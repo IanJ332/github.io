@@ -23,7 +23,7 @@ const greeting = {
   username: "Ian Jiang",
   title: "Hi there, I am Ian or call me Jisheng.4°",
   subTitle: emoji(
-    "A highly capable Backend Engineering  🚀 with experience in API development, AI fine-tuning, and cloud-based solutions. Proficient in Java, Python, JavaScript, and modern backend frameworks."
+    "A highly  Software Engineering  🚀 with experience in Backend, AI fine-tuning, and cloud-based solutions. Proficient in Java, Python, JavaScript, and modern backend frameworks."
   ),
   resumeLink:
     "https://drive.google.com/file/d/1111QUPGgbRKZyR8m5dPFHwuuZEw4VxSa/view?usp=sharing",
@@ -343,10 +343,11 @@ const podcastSection = {
 };
 
 // Resume Section
+ // Botton happened in `src/containers/greeting/Greeting.js`
+ // Addresss: `src/containers/greeting/resume` and rename the pdf to `resume.pdf`. 
 const resumeSection = {
   title: "Resume",
   subtitle: "Feel free to download my resume",
-
   // Please Provide with Your Podcast embeded Link
   display: true // Set false to hide this section, defaults to true
 };
