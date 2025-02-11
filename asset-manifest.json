@@ -1,20 +1,21 @@
 {
   "files": {
     "main.css": "/github.io/static/css/main.323d88c4.css",
-    "main.js": "/github.io/static/js/main.b7ece5b7.js",
+    "main.js": "/github.io/static/js/main.78725de6.js",
     "static/css/64.bba8fa55.chunk.css": "/github.io/static/css/64.bba8fa55.chunk.css",
     "static/js/64.56dc6704.chunk.js": "/github.io/static/js/64.56dc6704.chunk.js",
     "static/css/769.b3cbb36b.chunk.css": "/github.io/static/css/769.b3cbb36b.chunk.css",
     "static/js/769.bda0d7b7.chunk.js": "/github.io/static/js/769.bda0d7b7.chunk.js",
-    "static/media/rabbitheaven.png": "/github.io/static/media/rabbitheaven.306cb40212dab4f90d40.png",
+    "static/media/sjsu.png": "/github.io/static/media/sjsu.3a18964befea7083b0c8.png",
     "static/media/Montserrat-Regular.ttf": "/github.io/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
-    "static/media/collegebot.png": "/github.io/static/media/collegebot.af62ebff02c77b510baa.png",
+    "static/media/collegebot.png": "/github.io/static/media/collegebot.896892b609db51c90dc5.png",
     "static/media/Agustina.woff": "/github.io/static/media/Agustina.eb0c59dda4cc308cba96.woff",
-    "static/media/sjsu.png": "/github.io/static/media/sjsu.b04e4cc98b8eafd6c542.png",
+    "static/media/rabbitheaven.png": "/github.io/static/media/rabbitheaven.c52694b8ac9b9f94b323.png",
     "static/media/manOnTable.svg": "/github.io/static/media/manOnTable.8f117eb207e57ed8f89d67d595aceb45.svg",
     "static/media/contactMailDark.svg": "/github.io/static/media/contactMailDark.1db650d351729a0f17b4e3104e6a7b7a.svg",
     "static/media/developerActivity.svg": "/github.io/static/media/developerActivity.2c0445cae86f4243433a2f5a22b2c031.svg",
     "static/media/googleAssistantLogo.webp": "/github.io/static/media/googleAssistantLogo.f720c71652579588524a.webp",
+    "static/media/tripalink.png": "/github.io/static/media/tripalink.3010d02f0399395533de.png",
     "static/media/codeInLogo.webp": "/github.io/static/media/codeInLogo.e41a71d512efeda2a55c.webp",
     "static/media/skill.svg": "/github.io/static/media/skill.35a147662ab0a1d15e579690446e0258.svg",
     "static/media/resume.pdf": "/github.io/static/media/resume.f0f733dd3cd732b39262.pdf",
@@ -24,7 +25,7 @@
     "index.html": "/github.io/index.html",
     "static/media/talksCardBack.svg": "/github.io/static/media/talksCardBack.73ed1545d58273ba64b0.svg",
     "main.323d88c4.css.map": "/github.io/static/css/main.323d88c4.css.map",
-    "main.b7ece5b7.js.map": "/github.io/static/js/main.b7ece5b7.js.map",
+    "main.78725de6.js.map": "/github.io/static/js/main.78725de6.js.map",
     "64.bba8fa55.chunk.css.map": "/github.io/static/css/64.bba8fa55.chunk.css.map",
     "64.56dc6704.chunk.js.map": "/github.io/static/js/64.56dc6704.chunk.js.map",
     "769.b3cbb36b.chunk.css.map": "/github.io/static/css/769.b3cbb36b.chunk.css.map",
@@ -32,6 +33,6 @@
   },
   "entrypoints": [
     "static/css/main.323d88c4.css",
-    "static/js/main.b7ece5b7.js"
+    "static/js/main.78725de6.js"
   ]
 }
