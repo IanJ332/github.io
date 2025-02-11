@@ -20,26 +20,27 @@ const illustration = {
 };
 
 const greeting = {
-  username: "Saad Pasta",
-  title: "Hi all, I'm Saad",
+  username: "Ian Jiang",
+  title: "Hi there, I am Ian or Jisheng",
   subTitle: emoji(
-    "A passionate Full Stack Software Developer 🚀 having an experience of building Web and Mobile applications with JavaScript / Reactjs / Nodejs / React Native and some other cool libraries and frameworks."
+    "A highly capable Backend Engineering  🚀 with experience in API development, AI fine-tuning, and cloud-based solutions. Proficient in Java, Python, JavaScript, and modern backend frameworks."
   ),
   resumeLink:
-    "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing", // Set to empty to hide the button
-  displayGreeting: true // Set false to hide this section, defaults to true
+    "https://drive.google.com/file/d/1111QUPGgbRKZyR8m5dPFHwuuZEw4VxSa/view?usp=sharing",
+  displayGreeting: true //Set false to hide this section, defaults to true
 };
+
 
 // Social Media Links
 
 const socialMediaLinks = {
-  github: "https://github.com/saadpasta",
-  linkedin: "https://www.linkedin.com/in/saadpasta/",
-  gmail: "saadpasta70@gmail.com",
-  gitlab: "https://gitlab.com/saadpasta",
-  facebook: "https://www.facebook.com/saad.pasta7",
-  medium: "https://medium.com/@saadpasta",
-  stackoverflow: "https://stackoverflow.com/users/10422806/saad-pasta",
+  github: "https://github.com/IanJ332",
+  linkedin: "https://www.linkedin.com/in/jisheng-jiang/",
+  gmail: "jiangjs030@gmail.com",
+  // gitlab: "https://",
+  // facebook: "https://",
+  // medium: "https://",
+  // stackoverflow: "https://",
   // Instagram, Twitter and Kaggle are also supported in the links!
   // To customize icons and social links, tweak src/components/SocialMedia
   display: true // Set true to display this section, defaults to false
@@ -49,101 +50,71 @@ const socialMediaLinks = {
 
 const skillsSection = {
   title: "What I do",
-  subTitle: "CRAZY FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK",
+  subTitle: "BACKEND ENGINEER WITH AI & CLOUD EXPERIENCE",
   skills: [
-    emoji(
-      "⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications"
-    ),
-    emoji("⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks"),
-    emoji(
-      "⚡ Integration of third party services such as Firebase/ AWS / Digital Ocean"
-    )
+    emoji("⚡ Backend development using Java (Spring Boot) and Python"),
+    emoji("⚡ RESTful API design and implementation"),
+    emoji("⚡ SQL (PostgreSQL, MySQL) and NoSQL (MongoDB) database management"),
+    emoji("⚡ AI model fine-tuning, including NLP and computer vision"),
+    emoji("⚡ Cloud deployment and computing with AWS"),
+    emoji("⚡ Frontend development using JavaScript & React.js"),
+    emoji("⚡ Version control and team collaboration with Git")
   ],
-
-  /* Make Sure to include correct Font Awesome Classname to view your icon
-https://fontawesome.com/icons?d=gallery */
 
   softwareSkills: [
     {
-      skillName: "html-5",
-      fontAwesomeClassname: "fab fa-html5"
+      skillName: "Java",
+      fontAwesomeClassname: "fab fa-java"
     },
     {
-      skillName: "css3",
-      fontAwesomeClassname: "fab fa-css3-alt"
-    },
-    {
-      skillName: "sass",
-      fontAwesomeClassname: "fab fa-sass"
-    },
-    {
-      skillName: "JavaScript",
-      fontAwesomeClassname: "fab fa-js"
-    },
-    {
-      skillName: "reactjs",
-      fontAwesomeClassname: "fab fa-react"
-    },
-    {
-      skillName: "nodejs",
-      fontAwesomeClassname: "fab fa-node"
-    },
-    {
-      skillName: "swift",
-      fontAwesomeClassname: "fab fa-swift"
-    },
-    {
-      skillName: "npm",
-      fontAwesomeClassname: "fab fa-npm"
-    },
-    {
-      skillName: "sql-database",
-      fontAwesomeClassname: "fas fa-database"
-    },
-    {
-      skillName: "aws",
-      fontAwesomeClassname: "fab fa-aws"
-    },
-    {
-      skillName: "firebase",
-      fontAwesomeClassname: "fas fa-fire"
-    },
-    {
-      skillName: "python",
+      skillName: "Python",
       fontAwesomeClassname: "fab fa-python"
     },
     {
-      skillName: "docker",
-      fontAwesomeClassname: "fab fa-docker"
+      skillName: "Spring Boot",
+      fontAwesomeClassname: "fas fa-leaf"
+    },
+    {
+      skillName: "SQL",
+      fontAwesomeClassname: "fas fa-database"
+    },
+    {
+      skillName: "MongoDB",
+      fontAwesomeClassname: "fas fa-leaf"
+    },
+    {
+      skillName: "AWS",
+      fontAwesomeClassname: "fab fa-aws"
+    },
+    {
+      skillName: "React.js",
+      fontAwesomeClassname: "fab fa-react"
+    },
+    {
+      skillName: "Git",
+      fontAwesomeClassname: "fab fa-git-alt"
     }
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: true // keeit it true so it can do display
 };
-
 // Education Section
 
 const educationInfo = {
   display: true, // Set false to hide this section, defaults to true
   schools: [
     {
-      schoolName: "Harvard University",
-      logo: require("./assets/images/harvardLogo.png"),
-      subHeader: "Master of Science in Computer Science",
-      duration: "September 2017 - April 2019",
-      desc: "Participated in the research of XXX and published 3 papers.",
-      descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-      ]
-    },
-    {
-      schoolName: "Stanford University",
-      logo: require("./assets/images/stanfordLogo.png"),
+      schoolName: "San José State University",
+      logo: require("./assets/images/sjsu.png"),
       subHeader: "Bachelor of Science in Computer Science",
-      duration: "September 2013 - April 2017",
-      desc: "Ranked top 10% in the program. Took courses about Software Engineering, Web Security, Operating Systems, ...",
-      descBullets: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit"]
-    }
+      duration: "August 2021- June 2025",
+      desc: "Collaborated with peers to develop a commercialized model.",
+      descBullets: [
+        "Optimized model performance with a focus on enhancing generation speed",
+        "Fine-tuned the model to support multiple languages through multilingual training",
+        "Expanded capabilities for specialized subject tutoring and other future applications"
+      ]
+      
+    },
   ]
 };
 
@@ -153,16 +124,24 @@ const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
     {
-      Stack: "Frontend/Design", //Insert stack or technology you have experience in
-      progressPercentage: "90%" //Insert relative proficiency in percentage
+      Stack: "Backend Development", // 主要技能：Java (Spring Boot), Python, API 设计
+      progressPercentage: "85%" // 你主要擅长的部分
     },
     {
-      Stack: "Backend",
-      progressPercentage: "70%"
+      Stack: "AI & Machine Learning", // 主要技能：AI Fine-tuning, NLP, Computer Vision
+      progressPercentage: "75%" // 你有 AI 模型微调和训练经验
     },
     {
-      Stack: "Programming",
-      progressPercentage: "60%"
+      Stack: "Software Engineering", // 代码结构、优化、数据库等
+      progressPercentage: "80%"
+    },
+    {
+      Stack: "Cloud & DevOps", // 主要技能：AWS, Docker, 部署和优化
+      progressPercentage: "65%"
+    },
+    {
+      Stack: "Frontend (React.js)", // 你有 React.js 经验，但主要专注后端
+      progressPercentage: "50%" 
     }
   ],
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
@@ -174,31 +153,45 @@ const workExperiences = {
   display: true, //Set it to true to show workExperiences Section
   experience: [
     {
-      role: "Software Engineer",
-      company: "Facebook",
-      companylogo: require("./assets/images/facebookLogo.png"),
-      date: "June 2018 – Present",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      role: "Software Engineer Intern - Backend",
+      company: "Tripalink",
+      companylogo: require("./assets/images/tripalink.png"),
+      date: "June 2023 – Aug 2023",
+      desc: "Worked as a backend software engineering intern, contributing to API development, database optimization, and system reliability improvements.",
       descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        "Developed RESTful APIs using Java and Spring Boot",
+        "Optimized SQL queries to enhance database performance",
+        "Implemented logging and monitoring solutions for better system observability",
+        "Collaborated with frontend engineers to integrate APIs efficiently"
       ]
     },
     {
-      role: "Front-End Developer",
-      company: "Quora",
-      companylogo: require("./assets/images/quoraLogo.png"),
-      date: "May 2017 – May 2018",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      role: "Artificial Intelligence Engineer",
+      company: "CollegeBot.ai",
+      companylogo: require("./assets/images/collegebot.png"),
+      date: "Nov 2023 – Oct 2024",
+      desc: "Led AI model development and optimization for CollegeBot.ai, focusing on fine-tuning LLMs and expanding multilingual capabilities.",
+      descBullets: [
+        "Fine-tuned and optimized AI models for real-time responses",
+        "Expanded language support for AI-driven academic assistance",
+        "Integrated NLP techniques to enhance chatbot accuracy",
+        "Deployed AI models on cloud infrastructure for scalability"
+      ]
     },
     {
-      role: "Software Engineer Intern",
-      company: "Airbnb",
-      companylogo: require("./assets/images/airbnbLogo.png"),
-      date: "Jan 2015 – Sep 2015",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      role: "Frontend Engineer Volunteer",
+      company: "The Rabbit Heaven",
+      companylogo: require("./assets/images/rabbitheaven.png"),
+      date: "Nov 2022 – Present",
+      desc: "Volunteered as a frontend engineer, improving the adoption process by developing user-friendly interfaces for The Rabbit Heaven’s website.",
+      descBullets: [
+        "Developed and maintained the website using React.js",
+        "Enhanced user experience for pet adoption with interactive UI",
+        "Collaborated with shelter staff to streamline online adoption forms",
+        "Ensured website accessibility and mobile responsiveness"
+      ]
     }
-  ]
+  ]  
 };
 
 /* Your Open Source Section to View Your Github Pinned Projects
