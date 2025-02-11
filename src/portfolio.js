@@ -206,7 +206,7 @@ const openSource = {
 
 const bigProjects = {
   title: "Big Projects",
-  subtitle: "FINE - TUNNING AI MODEL HELPERBOB",
+  subtitle: "FINE-TUNING AI MODEL - HELPER BOB",
   projects: [
     {
       image: require("./assets/images/helperbob.png"),
@@ -217,8 +217,9 @@ const bigProjects = {
           name: "Visit Website",
           url: "https://huggingface.co/Ian332/Helper_Bob"
         }
-        //  you can add extra buttons here.
-      ]
+      ],
+      // add more here if you want
+      className: "project-roundedimg" // Add a class for styling
     }
   ],
   display: true // Set false to hide this section, defaults to true
