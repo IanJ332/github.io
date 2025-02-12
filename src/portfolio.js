@@ -352,6 +352,8 @@ const resumeSection = {
   display: true // Set false to hide this section, defaults to true
 };
 
+//So the original picture wont show up, the demo shows the picture, in different resolution will show nothing
+//or it will shows the letter. which DOES NOT MAKE ANY SENCE
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
   subtitle: "Discuss a project, offer me a job, or just want to say hi? My inbox is open for all.",
