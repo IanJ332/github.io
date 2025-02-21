@@ -354,7 +354,7 @@ const contactInfo = {
     github: "https://github.com/IanJ332",
     linkedin: "https://www.linkedin.com/in/jisheng-jiang/",
     email: "mailto:jiangjs03@gmail.com"
-  }
+
 };
 
 // Twitter Section
