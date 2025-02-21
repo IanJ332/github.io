@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/github.io/static/css/main.323d88c4.css",
-    "main.js": "/github.io/static/js/main.81a4b157.js",
+    "main.js": "/github.io/static/js/main.277bd711.js",
     "static/css/64.bba8fa55.chunk.css": "/github.io/static/css/64.bba8fa55.chunk.css",
     "static/js/64.56dc6704.chunk.js": "/github.io/static/js/64.56dc6704.chunk.js",
     "static/css/769.90369354.chunk.css": "/github.io/static/css/769.90369354.chunk.css",
@@ -10,7 +10,6 @@
     "static/media/Montserrat-Regular.ttf": "/github.io/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
     "static/media/collegebot.png": "/github.io/static/media/collegebot.896892b609db51c90dc5.png",
     "static/media/helperbob.png": "/github.io/static/media/helperbob.3e08acbffb64dcc7f681.png",
-    "static/media/profile.png": "/github.io/static/media/profile.b4ab5f7c852de5daa971.png",
     "static/media/resume.pdf": "/github.io/static/media/resume.cfa28525b7fb1fc91344.pdf",
     "static/media/Agustina.woff": "/github.io/static/media/Agustina.eb0c59dda4cc308cba96.woff",
     "static/media/rabbitheaven.png": "/github.io/static/media/rabbitheaven.c52694b8ac9b9f94b323.png",
@@ -25,7 +24,7 @@
     "index.html": "/github.io/index.html",
     "static/media/talksCardBack.svg": "/github.io/static/media/talksCardBack.73ed1545d58273ba64b0.svg",
     "main.323d88c4.css.map": "/github.io/static/css/main.323d88c4.css.map",
-    "main.81a4b157.js.map": "/github.io/static/js/main.81a4b157.js.map",
+    "main.277bd711.js.map": "/github.io/static/js/main.277bd711.js.map",
     "64.bba8fa55.chunk.css.map": "/github.io/static/css/64.bba8fa55.chunk.css.map",
     "64.56dc6704.chunk.js.map": "/github.io/static/js/64.56dc6704.chunk.js.map",
     "769.90369354.chunk.css.map": "/github.io/static/css/769.90369354.chunk.css.map",
@@ -33,6 +32,6 @@
   },
   "entrypoints": [
     "static/css/main.323d88c4.css",
-    "static/js/main.81a4b157.js"
+    "static/js/main.277bd711.js"
   ]
 }
