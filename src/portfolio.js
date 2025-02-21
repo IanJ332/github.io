@@ -270,8 +270,6 @@ const achievementSection = {
     },
 
     {
-      title: "PWA Web App Developer",
-      subtitle: "Completed Certifcation from SMIT for PWA Web App Development",
       image: require("./assets/images/pwaLogo.webp"),
       imageAlt: "PWA Logo",
       footerLink: [
@@ -359,10 +357,6 @@ const contactInfo = {
   subtitle: "Discuss a project, offer me a job, or just want to say hi? My inbox is open for all.",
   location: "Santa Clara / Remote", // 添加位置
   email_address: "jiangjs03@gmail.com", // 替换了
-  avatar: require("./assets/images/profile.png"), // 头像路径
-  isHireable: true, // need job if you see this hire me.
-
-  socialLinks: {
     github: "https://github.com/IanJ332",
     linkedin: "https://www.linkedin.com/in/jisheng-jiang/",
     email: "mailto:jiangjs03@gmail.com"
