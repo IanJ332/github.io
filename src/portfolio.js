@@ -270,8 +270,6 @@ const achievementSection = {
     },
 
     {
-      title: "PWA Web App Developer",
-      subtitle: "Completed Certifcation from SMIT for PWA Web App Development",
       image: require("./assets/images/pwaLogo.webp"),
       imageAlt: "PWA Logo",
       footerLink: [
@@ -295,19 +293,13 @@ const blogSection = {
   displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
   blogs: [
     {
-      url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
-      title: "Win a Google Assistant Tshirt and $200 in Google Cloud Credits",
+      url: "https://medium.com/@jiangjs03/the-quest-for-true-ai-reasoning-data-driven-approaches-and-extreme-hardware-optimization-1797a4b0bf47",
+      title: "AI Reasoning: Data - Driven Method & Hardware Optimization",
       description:
-        "Do you want to win $200 and Google Assistant Tshirt by creating a Google Assistant Action in less then 30 min?"
-    },
-    {
-      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
-      title: "Why REACT is The Best?",
-      description:
-        "React is a JavaScript library for building User Interface. It is maintained by Facebook and a community of individual developers and companies."
+        "This article explores data - driven training methods, GPU optimizations, and hardware advancements that push the boundaries of AI efficiency and logical processing."
     }
   ],
-  display: false // Set false to hide this section, defaults to true
+  display: true // Set false to hide this section, defaults to true
 };
 
 // Talks Sections
@@ -359,14 +351,9 @@ const contactInfo = {
   subtitle: "Discuss a project, offer me a job, or just want to say hi? My inbox is open for all.",
   location: "Santa Clara / Remote", // 添加位置
   email_address: "jiangjs03@gmail.com", // 替换了
-  avatar: require("./assets/images/profile.png"), // 头像路径
-  isHireable: true, // need job if you see this hire me.
-
-  socialLinks: {
     github: "https://github.com/IanJ332",
     linkedin: "https://www.linkedin.com/in/jisheng-jiang/",
     email: "mailto:jiangjs03@gmail.com"
-  }
 };
 
 // Twitter Section
