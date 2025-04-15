@@ -115,7 +115,21 @@ const educationInfo = {
       ]
       
     },
+    {
+      schoolName: "University of Illinois Urbana-Champaign",
+      logo: require("./assets/images/UIUC.png"),
+      subHeader: "Master of Computer Science",
+      duration: "August 2025- Dec 2026",
+      // desc: "Collaborated with peers to develop a commercialized model.",
+      // descBullets: [
+      //   "Optimized model performance with a focus on enhancing generation speed",
+      //   "Fine-tuned the model to support multiple languages through multilingual training",
+      //   "Expanded capabilities for specialized subject tutoring and other future applications"
+      // ]
+      
+    },
   ]
+  
 };
 
 // Your top 3 proficient stacks/tech experience
